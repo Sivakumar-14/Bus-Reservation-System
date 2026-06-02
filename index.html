@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Reservation - Login & Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .form-box { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 350px; }
+        h2 { text-align: center; color: #333; margin-bottom: 20px; }
+        label { font-weight: bold; color: #555; display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; background: #007bff; color: white; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 20px; }
+        button:hover { background: #0056b3; }
+        .toggle-link { text-align: center; margin-top: 15px; font-size: 14px; color: #007bff; cursor: pointer; }
+        .message { text-align: center; font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="form-box" id="loginBox">
+        <h2>User & Admin Login</h2>
+        <label>Username</label>
+        <input type="text" id="loginUser" placeholder="Enter Username">
+        
+        <label>Password</label>
+        <input type="password" id="loginPass" placeholder="Enter Password">
+        
+        <label>Role</label>
+        <select id="loginRole">
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+        </select>
+        
+        <button onclick="handleLogin()">Login</button>
+        <div class="message" id="messageBoxLogin"></div>
+        <div class="toggle-link" onclick="toggleForm('register')">Don't have an account? Register here</div>
+    </div>
+
+    <div class="form-box" id="registerBox" style="display: none;">
+        <h2>Register Account</h2>
+        <label>Create Username</label>
+        <input type="text" id="regUser" placeholder="Choose Username">
+        
+        <label>Create Password</label>
+        <input type="password" id="regPass" placeholder="Choose Password">
+        
+        <button onclick="handleRegister()">Register</button>
+        <div class="message" id="messageBoxRegister"></div>
+        <div class="toggle-link" onclick="toggleForm('login')">Already have an account? Login here</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
