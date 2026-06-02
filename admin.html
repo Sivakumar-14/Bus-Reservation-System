@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #333; }
+        .banner { background: #343a40; color: white; padding: 12px; border-radius: 5px; text-align: center; font-weight: bold; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: #007bff; color: white; }
+        tr:nth-child(even) { background: #f2f2f2; }
+        .logout-btn { background: #dc3545; float: right; padding: 8px 15px; color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="logout-btn">Logout</a>
+        <h2>Bus System Control Center</h2>
+        <div class="banner">🔒 Administrator Secure Console Mode</div>
+        <table>
+            <thead>
+                <tr><th>Bus No</th><th>Route</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>TN-38-AB-1234</td><td>Chennai ➡️ Coimbatore</td><td><span style="color: green; font-weight: bold;">Active</span></td></tr>
+                <tr><td>TN-01-XY-5678</td><td>Chennai ➡️ Madurai</td><td><span style="color: green; font-weight: bold;">Active</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
