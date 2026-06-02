@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Book Ticket</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2, h3 { color: #333; text-align: center; }
+        .section { border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-bottom: 25px; background: #fafafa; }
+        label { font-weight: bold; color: #555; display: block; margin-top: 10px; }
+        input, select { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        button { width: 100%; padding: 12px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 20px; color: white; }
+        .btn-book { background: #28a745; }
+        .btn-cancel { background: #dc3545; }
+        .price-box { font-size: 20px; font-weight: bold; color: #007bff; text-align: center; margin-top: 15px; padding: 10px; background: #e9f3ff; border-radius: 5px; }
+        .message { text-align: center; font-weight: bold; margin-top: 15px; }
+        .logout-btn { background: #6c757d; float: right; padding: 8px 15px; color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="logout-btn">Logout</a>
+        <h2>Bus Ticket Reservation Portal</h2>
+        <div class="message" id="messageBox"></div>
+
+        <div class="section">
+            <h3>🚌 Book Your Bus Ticket</h3>
+            <form id="bookingForm" onsubmit="event.preventDefault(); handleBooking();">
+                <div class="grid">
+                    <div>
+                        <label>Passenger Name</label>
+                        <input type="text" id="passName" required placeholder="Name">
+                    </div>
+                    <div>
+                        <label>Passenger Email</label>
+                        <input type="email" id="passEmail" required placeholder="Email">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <label>From</label>
+                        <select id="startingPoint" onchange="updatePrice()">
+                            <option value="Chennai">Chennai</option>
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Madurai">Madurai</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>To</label>
+                        <select id="destination" onchange="updatePrice()">
+                            <option value="Coimbatore">Coimbatore</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Madurai">Madurai</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <label>Bus No</label>
+                        <select id="busNo">
+                            <option value="TN-38-AB-1234">TN-38-AB-1234 (AC Sleeper)</option>
+                            <option value="TN-01-XY-5678">TN-01-XY-5678 (Ultra Deluxe)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Seat Number</label>
+                        <input type="number" id="seatNo" min="1" max="40" required placeholder="1 to 40">
+                    </div>
+                </div>
+                <div class="grid">
+                    <div>
+                        <label>Date</label>
+                        <input type="date" id="bookDate" required>
+                    </div>
+                    <div>
+                        <label>Time</label>
+                        <input type="time" id="bookTime" required>
+                    </div>
+                </div>
+                <div class="price-box">Fare: ₹<span id="priceDisplay">1200</span></div>
+                <button type="submit" class="btn-book">Book Ticket & Send Email</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h3>❌ Cancel Ticket</h3>
+            <form id="cancelForm" onsubmit="event.preventDefault(); handleCancellation();">
+                <label>Booking ID</label>
+                <input type="text" id="cancelBookingNo" required placeholder="Enter Booking ID">
+                <button type="submit" class="btn-cancel">Cancel Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>window.onload = updatePrice;</script>
+</body>
+</html>
